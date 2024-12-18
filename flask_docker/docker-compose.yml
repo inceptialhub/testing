@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5008:5008"
+    volumes:
+      - ./bulk:/app/bulk
+      - ./single:/app/single
+      - ./processed:/app/processed
+
+    # environment:
+    #   FLASK_ENV: development
+    # container_name: flask-app
+    restart: always
